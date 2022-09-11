@@ -16,8 +16,5 @@ RUN pip3 install jupyterlab && \
 
 COPY ./jupyter_lab_config.py ~/.jupyter/jupyter_lab_config.py
 
-RUN curl https://raw.githubusercontent.com/sashimi-git/JetsonXavierNX-ML-Environment/main/InstallOpenCV.sh -o InstallOpenCV.sh && \
-    sh ./InstallOpenCV.sh
-
 WORKDIR /workspace
 CMD ["/bin/bash"]
