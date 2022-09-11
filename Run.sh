@@ -9,7 +9,7 @@ function showHelp() {
 
 USE_CAMERA=false
 
-while getops i:ch option
+while getopts i:ch option
 do
     case $option in
         i)

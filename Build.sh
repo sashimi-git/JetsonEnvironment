@@ -6,7 +6,7 @@ function showHelp() {
     echo "-h - Show help."
 }
 
-while getops i:h option
+while getopts i:h option
 do
     case $option in
         i)
