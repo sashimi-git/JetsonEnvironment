@@ -2,7 +2,8 @@
 
 function showHelp() {
     echo "<Help>"
-    echo "-i <IMAGENAME> - Specifies the image name to build. "
+    echo "-i <IMAGENAME> - Specifies the image name."
+    echo "-u <USERNAME> - Specifies the user name."
     echo "-t <TAG> - Specifies the tag of the image."
     echo "-h - Show help."
     echo ""
@@ -13,7 +14,7 @@ function showHelp() {
     echo "jetpack - [r35.1.0]"
 }
 
-while getopts i:t:h option
+while getopts i:u:t:h option
 do
     case $option in
         i)
@@ -29,6 +30,8 @@ do
                 exit 1
             fi
             IMAGE_NAME=${OPTARG};;
+        u)
+            USER_NAME=${OPTARG};;
         t)
             TAG=${OPTARG};;
         h)
@@ -41,4 +44,4 @@ do
     esac
 done
 
-docker build -t ${IMAGE_NAME}:${TAG} -f ./Dockerfiles/Dockerfile.${FILE} --build-arg TAG=${TAG} .
+docker build -t ${USER_NAME}/${IMAGE_NAME}:${TAG} -f ./Dockerfiles/Dockerfile.${FILE} --build-arg TAG=${TAG} .

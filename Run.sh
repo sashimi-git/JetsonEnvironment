@@ -2,8 +2,8 @@
 
 function showHelp() {
     echo "<Help>"
-    echo "-i <IMAGENAME> - Specifies the name of the image to run."
-    echo "-t <TAG> - Specifies the tag of the image."
+    echo "-i <IMAGENAME> - Specifies the image name."
+    echo "-u <USERNAME> - Specifies the user name."
     echo "-c - Use the camera."
     echo "-h - Show help."
     echo ""
@@ -16,11 +16,13 @@ function showHelp() {
 
 USE_CAMERA=false
 
-while getopts i:t:ch option
+while getopts i:u:t:ch option
 do
     case $option in
         i)
             IMAGE_NAME=${OPTARG};;
+        u)
+            USER_NAME=${OPTARG};;
         t)
             TAG=${OPTARG};;
         c)
@@ -36,7 +38,7 @@ do
 done
 
 if "${USE_CAMERA}"; then
-    docker run -it --rm -p 8888:8888 --device /dev/video0:/dev/video0 -v ~/Documents/workspace:/workspace -e OPENBLAS_CORETYPE=ARMV8 ${IMAGE_NAME}:${TAG}
+    docker run -it --rm -p 8888:8888 --device /dev/video0:/dev/video0 -v ~/Documents/workspace:/workspace -e OPENBLAS_CORETYPE=ARMV8 ${USER_NAME}/${IMAGE_NAME}:${TAG}
 else
-    docker run -it --rm -p 8888:8888 -v ~/Documents/workspace:/workspace -e OPENBLAS_CORETYPE=ARMV8 ${IMAGE_NAME}:${TAG}
+    docker run -it --rm -p 8888:8888 -v ~/Documents/workspace:/workspace -e OPENBLAS_CORETYPE=ARMV8 ${USER_NAME}/${IMAGE_NAME}:${TAG}
 fi
