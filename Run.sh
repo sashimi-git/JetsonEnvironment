@@ -30,7 +30,7 @@ do
 done
 
 if "${USE_CAMERA}"; then
-    sudo docker run -it --rm --net host --device /dev/video0:/dev/video0 -v ~/Documents/workspace:/workspace ${USERNAME}/${IMAGE_NAME}
+    sudo docker run -it --rm --net host --device /dev/video0:/dev/video0 -v ~/Documents/workspace:/workspace ${USERNAME}:${IMAGE_NAME}
 else
-    sudo docker run -it --rm --net host -v ~/Documents/workspace:/workspace ${USERNAME}/${IMAGE_NAME}
+    sudo docker run -it --rm --net host -v ~/Documents/workspace:/workspace ${USERNAME}:${IMAGE_NAME}
 fi
