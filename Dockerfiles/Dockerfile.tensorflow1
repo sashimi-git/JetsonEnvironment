@@ -6,7 +6,8 @@ RUN apt update && apt upgrade && \
 RUN pip3 install -U pip && \
     pip3 install matplotlib pillow numpy pandas
 
-RUN curl https://raw.githubusercontent.com/sashimi-git/JetsonXavierNX-ML-Environment/main/InstallOpenCV.sh -o InstallOpenCV.sh
+RUN curl https://raw.githubusercontent.com/sashimi-git/JetsonXavierNX-ML-Environment/main/InstallOpenCV.sh -o InstallOpenCV.sh && \
+    sh ./InstallOpenCV.sh
 
 ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 ENV PYTHONPATH=/usr/local/lib/python3.8/site-packages/:$PYTHONPATH
