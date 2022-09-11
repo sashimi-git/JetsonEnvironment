@@ -1,9 +1,9 @@
 FROM nvcr.io/nvidia/l4t-tensorflow:r35.1.0-tf2.9-py3
 
 RUN pip3 install -U pip && \
-    pip3 install -y matplotlib pillow numpy pandas
+    pip3 install matplotlib pillow numpy pandas
 
-RUN pip3 install -y jupyterlab && \
+RUN pip3 install jupyterlab && \
     jupyter lab --generate-config && \
     rm ~/.jupyter/jupyter_lab_config.py
 
