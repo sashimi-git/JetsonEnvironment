@@ -6,7 +6,6 @@ ENV PYTHONPATH=/usr/local/lib/python3.8/site-packages/:$PYTHONPATH
 ENV OPENBLAS_CORETYPE=ARMV8
 
 RUN apt update && apt upgrade -y && \
-    apt-get update && \
     apt-get install -y python3-pip
 
 RUN pip3 install -U pip && \
