@@ -21,4 +21,4 @@ do
     esac
 done
 
-sudo docker build -t ${IMAGE_NAME} -f Dockerfile.${IMAGE_NAME} ./Dockerfiles/
+sudo docker build -t ${IMAGE_NAME} -f ./Dockerfiles/Dockerfile.${IMAGE_NAME} ./Dockerfiles/
