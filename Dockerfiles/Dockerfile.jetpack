@@ -1,10 +1,13 @@
 FROM nvcr.io/nvidia/l4t-jetpack:r35.1.0
 
 RUN apt update && apt upgrade && \
-    apt-get update
+    apt-get update && \
+    apt-get install -y python3-pip
 
 RUN pip3 install -U pip && \
     pip3 install matplotlib pillow numpy pandas
+
+RUN pip3 install jupyterlab
 
 RUN curl https://raw.githubusercontent.com/sashimi-git/JetsonXavierNX-ML-Environment/main/InstallOpenCV.sh -o InstallOpenCV.sh && \
     sh ./InstallOpenCV.sh
