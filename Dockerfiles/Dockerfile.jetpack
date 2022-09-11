@@ -11,7 +11,7 @@ RUN pip3 install jupyterlab && \
     jupyter lab --generate-config && \
     rm ~/.jupyter/jupyter_lab_config.py
 
-COPY jupyter_lab_config.py ~/.jupyter/
+COPY jupyter_lab_config.py /root/.jupyter/
 
 WORKDIR /workspace
 CMD ["/bin/bash"]

@@ -41,4 +41,4 @@ do
     esac
 done
 
-docker build -t ${IMAGE_NAME}:${TAG} -f ./Dockerfiles/Dockerfile.${FILE} --build-arg TAG=${TAG} ./Dockerfiles/
+docker build -t ${IMAGE_NAME}:${TAG} -f ./Dockerfiles/Dockerfile.${FILE} --build-arg TAG=${TAG} .
