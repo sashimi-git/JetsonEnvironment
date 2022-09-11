@@ -1,4 +1,5 @@
-FROM nvcr.io/nvidia/l4t-pytorch:r35.1.0-pth1.13-py3
+ARG TAG
+FROM nvcr.io/nvidia/l4t-pytorch:${TAG}
 
 RUN pip3 install -U pip && \
     pip3 install matplotlib pillow numpy pandas

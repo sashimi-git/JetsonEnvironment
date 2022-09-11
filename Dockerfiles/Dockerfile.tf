@@ -1,4 +1,5 @@
-FROM nvcr.io/nvidia/l4t-tensorflow:r35.1.0-tf1.15-py3
+ARG TAG
+FROM nvcr.io/nvidia/l4t-tensorflow:${TAG}
 
 RUN pip3 install -U pip && \
     pip3 install matplotlib pillow numpy pandas
