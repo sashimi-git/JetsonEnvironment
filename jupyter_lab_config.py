@@ -957,7 +957,7 @@ c.ServerApp.open_browser = True
 # c.ServerApp.password = ''
 
 # Please change your password.
-c.ServerApp.password = 'argon2:$argon2id$v=19$m=10240,t=10,p=8$DPHAcJdwrjVYLCJwJyJ92g$cEsdY1OlbRfJLXMhZ4MLFlNNmzzuojpbxg8ZSJl6TnI'
+c.ServerApp.password = ''
 
 ## Forces users to use a password for the Jupyter server.
 #                        This is useful in a multi user environment, for instance when
