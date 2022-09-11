@@ -6,7 +6,7 @@ Running these Dockerfiles will install the following packages:
     - Pytorch v1.13.0
         - torchvision v0.13.0
         - torchaudio v0.12.0
-- opencv v4.6.0
+- opencv v4.5.x
 - numpy
 - matplotlib
 - pandas

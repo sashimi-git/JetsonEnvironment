@@ -30,7 +30,7 @@ do
 done
 
 if "${USE_CAMERA}"; then
-    docker run -it --rm -p 8888:8888 --device /dev/video0:/dev/video0 -v ~/Documents/workspace:/workspace ${USERNAME}:${IMAGE_NAME}
+    docker run -it --rm -p 8888:8888 --device /dev/video0:/dev/video0 -v ~/Documents/workspace:/workspace -e OPENBLAS_CORETYPE=ARMV8 ${USERNAME}:${IMAGE_NAME}
 else
-    docker run -it --rm -p 8888:8888 -v ~/Documents/workspace:/workspace ${USERNAME}:${IMAGE_NAME}
+    docker run -it --rm -p 8888:8888 -v ~/Documents/workspace:/workspace -e OPENBLAS_CORETYPE=ARMV8 ${USERNAME}:${IMAGE_NAME}
 fi
