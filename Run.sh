@@ -10,7 +10,7 @@ function showHelp() {
 
 USE_CAMERA=false
 
-while getopts i:ch option
+while getopts i:u:ch option
 do
     case $option in
         i)
@@ -30,7 +30,7 @@ do
 done
 
 if "${USE_CAMERA}"; then
-    sudo docker run -it --rm -p 8888:8888 --device /dev/video0:/dev/video0 -v ~/Documents/workspace:/workspace ${USERNAME}:${IMAGE_NAME}
+    docker run -it --rm -p 8888:8888 --device /dev/video0:/dev/video0 -v ~/Documents/workspace:/workspace ${USERNAME}:${IMAGE_NAME}
 else
-    sudo docker run -it --rm -p8888:8888 -v ~/Documents/workspace:/workspace ${USERNAME}:${IMAGE_NAME}
+    docker run -it --rm -p 8888:8888 -v ~/Documents/workspace:/workspace ${USERNAME}:${IMAGE_NAME}
 fi
