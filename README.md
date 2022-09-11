@@ -15,12 +15,12 @@ Running these Dockerfiles will install the following packages:
 
 ## Build
 ```
-$ bash ./Build.sh -i <IMAGENAME> -t <TAG>
+$ bash ./Build.sh -i <IMAGENAME> -u <USERNAME> -t <TAG>
 ```
 For example:
 ```
 $ cd JetsonXavierNX-ML-Environment
-$ bash ./Build.sh -i sashimi/tensorflow -t r35.1.0-tf2.9-py3
+$ bash ./Build.sh -i tensorflow -u sashimi -t r35.1.0-tf2.9-py3
 ```
 If you don't know how to use:
 ```
@@ -29,16 +29,16 @@ $ bash ./Build.sh -h
 ## Run
 If you use the camera:
 ```
-$ bash ./Run.sh -i <IMAGENAME> -t <TAG> -c
+$ bash ./Run.sh -i <IMAGENAME> -u <USERNAME> -t <TAG> -c
 ```
 If you don't use the camera:
 ```
-$ bash ./Run.sh -i <IMAGENAME> -t <TAG>
+$ bash ./Run.sh -i <IMAGENAME> -u <USERNAME> -t <TAG>
 ```
 For example:
 ```
 $ cd JetsonXavierNX-ML-Environment
-$ bash ./Run.sh -i sashimi/tensorflow -t r35.1.0-tf2.9-py3 -c
+$ bash ./Run.sh -i tensorflow -u sashimi -t r35.1.0-tf2.9-py3 -c
 ```
 If you don't know how to use:
 ```
