@@ -38,7 +38,7 @@ do
 done
 
 if "${USE_CAMERA}"; then
-    docker run -it --rm -p 8888:8888 --device /dev/video0:/dev/video0 -v ~/Documents/workspace:/workspace -e OPENBLAS_CORETYPE=ARMV8 ${USER_NAME}/${IMAGE_NAME}:${TAG}
+    docker run -it --rm -p 8888:8888 --runtime nvidia --device /dev/video0:/dev/video0 -v ~/Documents/workspace:/workspace -e OPENBLAS_CORETYPE=ARMV8 ${USER_NAME}/${IMAGE_NAME}:${TAG}
 else
-    docker run -it --rm -p 8888:8888 -v ~/Documents/workspace:/workspace -e OPENBLAS_CORETYPE=ARMV8 ${USER_NAME}/${IMAGE_NAME}:${TAG}
+    docker run -it --rm -p 8888:8888 --runtime nvidia -v ~/Documents/workspace:/workspace -e OPENBLAS_CORETYPE=ARMV8 ${USER_NAME}/${IMAGE_NAME}:${TAG}
 fi
