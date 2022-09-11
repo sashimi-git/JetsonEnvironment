@@ -20,7 +20,7 @@ $ bash ./Build.sh -i <IMAGENAME> -u <USERNAME>
 For example:
 ```
 $ cd JetsonXavierNX-ML-Environment
-$ bash ./Build.sh -i tensorflow1 -u sashimi
+$ bash ./Build.sh -i tensorflow1x -u sashimi
 ```
 ## Run
 If you use the camera:
@@ -34,7 +34,7 @@ $ bash ./Run.sh -i <IMAGENAME> -u <USERNAME>
 For example:
 ```
 $ cd JetsonXavierNX-ML-Environment
-$ bash ./Run.sh -i tensorflow1 -u sashimi -c
+$ bash ./Run.sh -i tensorflow1x -u sashimi -c
 ```
 
 ## Run Jupyter Lab
