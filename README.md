@@ -1,5 +1,4 @@
 # JetsonXavierNX ML Environment
-You can build an environment for artificial intelligence with JetsonXavierNX.
 Running these Dockerfiles will install the following packages:
 - Machine learning library (one of the following)
     - Tensorflow v1.15.5
@@ -16,32 +15,35 @@ Running these Dockerfiles will install the following packages:
 
 ## Build
 ```
-bash ./Build.sh -i <IMAGENAME> -u <USERNAME>
+$ bash ./Build.sh -i <IMAGENAME> -u <USERNAME>
 ```
 For example:
 ```
-cd JetsonXavierNX-ML-Environment
-bash ./Build.sh -i tensorflow1 -u sashimi
+$ cd JetsonXavierNX-ML-Environment
+$ bash ./Build.sh -i tensorflow1 -u sashimi
 ```
 ## Run
 If you use the camera:
 ```
-bash ./Run.sh -i <IMAGENAME> -u <USERNAME> -c
+$ bash ./Run.sh -i <IMAGENAME> -u <USERNAME> -c
 ```
 If you don't use the camera:
 ```
-bash ./Run.sh -i <IMAGENAME> -u <USERNAME>
+$ bash ./Run.sh -i <IMAGENAME> -u <USERNAME>
 ```
 For example:
 ```
-cd JetsonXavierNX-ML-Environment
-bash ./Run.sh -i tensorflow1 -u sashimi -c
+$ cd JetsonXavierNX-ML-Environment
+$ bash ./Run.sh -i tensorflow1 -u sashimi -c
 ```
 
 ## Run Jupyter Lab
-Jupyter lab is installed at build time. If you want to use it, execute the code below to get the password and then rewrite line 960 of "jupyter_lab_config.py".
+Specify the password in the command below.
 ```
-$ ipython
-from jupyter_server.auth import passwd
-passwd()
+$ jupyter lab password
 ```
+Start Jupyter lab in the command below.
+```
+$ jupyter lab
+```
+Then go to http://localhost:8888 or http://JetsonIPAddress:8888.

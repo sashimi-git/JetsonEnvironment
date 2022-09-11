@@ -956,9 +956,6 @@ c.ServerApp.open_browser = True
 #  Default: ''
 # c.ServerApp.password = ''
 
-# Please change your password.
-c.ServerApp.password = ''
-
 ## Forces users to use a password for the Jupyter server.
 #                        This is useful in a multi user environment, for instance when
 #                        everybody in the LAN can access each other's machine through ssh.
