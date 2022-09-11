@@ -1,0 +1,16 @@
+FROM nvcr.io/nvidia/l4t-tensorflow:r35.1.0-tf2.9-py3
+
+RUN apt update && apt upgrade && \
+    apt-get update
+
+RUN pip3 install -U pip && \
+    pip3 install matplotlib pillow numpy pandas
+
+RUN curl https://raw.githubusercontent.com/sashimi-git/JetsonXavierNX-ML-Environment/main/InstallOpenCV.sh -o InstallOpenCV.sh
+
+ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+ENV PYTHONPATH=/usr/local/lib/python3.8/site-packages/:$PYTHONPATH
+ENV OPENBLAS_CORETYPE=ARMV8
+
+WORKDIR /workspace
+CMD ["/bin/bash"]
