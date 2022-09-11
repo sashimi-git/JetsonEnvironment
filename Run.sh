@@ -14,9 +14,9 @@ while getopts i:ch option
 do
     case $option in
         i)
-            IMAGE_NAME=${OPTAGE};;
+            IMAGE_NAME=${OPTARG};;
         u)
-            USERNAME=${OPTAGE};;
+            USERNAME=${OPTARG};;
         c)
             USE_CAMERA=true;;
         h)
