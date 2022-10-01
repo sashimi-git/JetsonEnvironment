@@ -2,10 +2,12 @@
 
 function showHelp() {
     echo "<Help>"
-    echo "-i <IMAGENAME> - Specifies the image name."
-    echo "-u <USERNAME> - Specifies the user name."
-    echo "-c - Use the camera."
-    echo "-h - Show help."
+    echo "* -i <IMAGENAME> - Specifies the image name."
+    echo "* -u <USERNAME> - Specifies the user name."
+    echo "* -t <TAG> - Specifies the tag of the image."
+    echo "  -c <DEVICE> - Use the camera."
+    echo "  -h - Show help."
+    echo "* is a required option."
     echo ""
     echo "<Images>"
     echo "tensorflow - [r35.1.0-tf2.9-py3]"
@@ -15,18 +17,37 @@ function showHelp() {
 }
 
 USE_CAMERA=false
+IMAGE_NAME=""
+USER_NAME=""
+TAG=""
 
-while getopts i:u:t:ch option
+while getopts i:u:t:n:rc:h option
 do
     case $option in
         i)
+            if [ "${OPTARG}" = "" ]; then
+                echo "Wrong image name."
+                showHelp
+                exit 1
+            fi
             IMAGE_NAME=${OPTARG};;
         u)
+            if [ "${OPTARG}" = "" ]; then
+                echo "Wrong user name."
+                showHelp
+                exit 1
+            fi
             USER_NAME=${OPTARG};;
         t)
+            if [ "${OPTARG}" = "" ]; then
+                echo "Wrong tag."
+                showHelp
+                exit 1
+            fi
             TAG=${OPTARG};;
         c)
-            USE_CAMERA=true;;
+            USE_CAMERA=true
+            DEVICE=${OPTARG};;
         h)
             showHelp
             exit 0;;
@@ -37,8 +58,14 @@ do
     esac
 done
 
+if [ "${IMAGE_NAME}" = ""] || [ "${USER_NAME}" = "" ] || [ "${TAG}" = "" ]; then
+    echo "Wrong tag."
+    showHelp
+    exit 1
+fi
+
 if "${USE_CAMERA}"; then
-    docker run -it --rm -p 8888:8888 --runtime nvidia --device /dev/video0:/dev/video0 -v ~/Documents/workspace:/workspace -e OPENBLAS_CORETYPE=ARMV8 ${USER_NAME}/${IMAGE_NAME}:${TAG}
+    docker run -it --rm -p 8888:8888 --runtime nvidia --device ${DEVICE}:${DEVICE} -v ~/Documents/workspace:/workspace -e OPENBLAS_CORETYPE=ARMV8 ${USER_NAME}/${IMAGE_NAME}:${TAG}
 else
     docker run -it --rm -p 8888:8888 --runtime nvidia -v ~/Documents/workspace:/workspace -e OPENBLAS_CORETYPE=ARMV8 ${USER_NAME}/${IMAGE_NAME}:${TAG}
 fi
