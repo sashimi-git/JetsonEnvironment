@@ -59,7 +59,7 @@ do
     esac
 done
 
-if [ ! "${IMAGE_NAME}" ] || [ ! "${USER_NAME}" ] || [ ! "${TAG}" ]; then
+if ! "${IMAGE_NAME}" || ! "${USER_NAME}" || ! "${TAG}" ; then
     echo "Wrong tag."
     showHelp
     exit 1
