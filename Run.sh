@@ -17,35 +17,35 @@ function showHelp() {
     echo "jetpack - [r35.1.0]"
 }
 
+function wrongParam() {
+    echo "Wrong parameter."
+    showHelp
+    exit 1
+}
+
 USE_CAMERA=false
-IMAGE_NAME=false
-USER_NAME=false
-TAG=false
 
 while getopts i:u:t:n:rc:h option
 do
     case $option in
         i)
             if [ "${OPTARG}" = "" ]; then
-                echo "Wrong image name."
-                showHelp
-                exit 1
+                wrongParam
             fi
-            IMAGE_NAME=${OPTARG};;
+            IMAGE_NAME=${OPTARG}
+            ENTERED_I="t";;
         u)
             if [ "${OPTARG}" = "" ]; then
-                echo "Wrong user name."
-                showHelp
-                exit 1
+                wrongParam
             fi
-            USER_NAME=${OPTARG};;
+            USER_NAME=${OPTARG}
+            ENTERED_U="t";;
         t)
             if [ "${OPTARG}" = "" ]; then
-                echo "Wrong tag."
-                showHelp
-                exit 1
+                wrongParam
             fi
-            TAG=${OPTARG};;
+            TAG=${OPTARG}
+            ENTERED_T="t";;
         c)
             USE_CAMERA=true
             DEVICE=${OPTARG};;
@@ -55,15 +55,13 @@ do
         \?)
             echo "Wrong parameter."
             showHelp
-            exit 1;;
+            exit 0;;
     esac
 done
 
-if ! "${IMAGE_NAME}" || ! "${USER_NAME}" || ! "${TAG}" ; then
-    echo "Wrong tag."
-    showHelp
-    exit 1
-fi
+[ "${ENTERED_I}" != "t" ] && wrongParam
+[ "${ENTERED_U}" != "t" ] && wrongParam
+[ "${ENTERED_T}" != "t" ] && wrongParam
 
 if "${USE_CAMERA}"; then
     docker run -it --rm -p 8888:8888 --runtime nvidia --device ${DEVICE}:${DEVICE} -v ~/Documents/workspace:/workspace -e OPENBLAS_CORETYPE=ARMV8 ${USER_NAME}/${IMAGE_NAME}:${TAG}

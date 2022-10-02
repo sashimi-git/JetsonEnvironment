@@ -16,9 +16,11 @@ function showHelp() {
     echo "jetpack - [r35.1.0]"
 }
 
-IMAGE_NAME=false
-USER_NAME=false
-TAG=false
+function wrongParam() {
+    echo "Wrong parameter."
+    showHelp
+    exit 1
+}
 
 while getopts i:u:t:h option
 do
@@ -30,40 +32,37 @@ do
                 FILE=pytorch;
             elif [ "${OPTARG}" = "jetpack" ]; then
                 FILE=jetpack
+            elif [ "${OPTARG}" = "base" ]; then
+                FILE=base
             else
-                echo "Wrong image name."
-                showHelp
-                exit 1
+                wrongParam
             fi
-            IMAGE_NAME=${OPTARG};;
+            IMAGE_NAME=${OPTARG}
+            ENTERED_I="t";;
         u)
             if [ "${OPTARG}" = "" ]; then
-                echo "Wrong user name."
-                showHelp
-                exit 1
+                wrongParam
             fi
-            USER_NAME=${OPTARG};;
+            USER_NAME=${OPTARG}
+            ENTERED_U="t";;
         t)
             if [ "${OPTARG}" = "" ]; then
-                echo "Wrong tag."
-                showHelp
-                exit 1
+                wrongParam
             fi
-            TAG=${OPTARG};;
+            TAG=${OPTARG}
+            ENTERED_T="t";;
         h)
             showHelp
             exit 0;;
         \?)
             echo "Wrong parameter."
             showHelp
-            exit 1;;
+            exit 0;;
     esac
 done
 
-if ! "${IMAGE_NAME}" || ! "${USER_NAME}" || ! "${TAG}" ; then
-    echo "Wrong tag."
-    showHelp
-    exit 1
-fi
+[ "${ENTERED_I}" != "t" ] && wrongParam
+[ "${ENTERED_U}" != "t" ] && wrongParam
+[ "${ENTERED_T}" != "t" ] && wrongParam
 
 docker build -t ${USER_NAME}/${IMAGE_NAME}:${TAG} -f ./Dockerfiles/Dockerfile.${FILE} --build-arg TAG=${TAG} .
