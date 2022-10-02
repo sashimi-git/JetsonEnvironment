@@ -10,6 +10,7 @@ function showHelp() {
     echo "* is a required option."
     echo ""
     echo "<Images>"
+    echo "base - [r35.1.0]"
     echo "tensorflow - [r35.1.0-tf2.9-py3]"
     echo "             [r35.1.0-tf1.15-py3]"
     echo "pytorch - [r35.1.0-pth1.13-py3]"
@@ -17,9 +18,9 @@ function showHelp() {
 }
 
 USE_CAMERA=false
-IMAGE_NAME=""
-USER_NAME=""
-TAG=""
+IMAGE_NAME=false
+USER_NAME=false
+TAG=false
 
 while getopts i:u:t:n:rc:h option
 do
@@ -58,7 +59,7 @@ do
     esac
 done
 
-if [ "${IMAGE_NAME}" = ""] || [ "${USER_NAME}" = "" ] || [ "${TAG}" = "" ]; then
+if [ ! "${IMAGE_NAME}" ] || [ ! "${USER_NAME}" ] || [ ! "${TAG}" ]; then
     echo "Wrong tag."
     showHelp
     exit 1

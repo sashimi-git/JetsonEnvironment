@@ -1,0 +1,9 @@
+setup.py
+JetsonPatches/__init__.py
+JetsonPatches/cv2_imshow.py
+JetsonPatches/getCamera.py
+JetsonPatches.egg-info/PKG-INFO
+JetsonPatches.egg-info/SOURCES.txt
+JetsonPatches.egg-info/dependency_links.txt
+JetsonPatches.egg-info/requires.txt
+JetsonPatches.egg-info/top_level.txt

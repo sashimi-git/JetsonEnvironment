@@ -1,11 +1,11 @@
 ARG TAG
-FROM nvcr.io/nvidia/l4t-tensorflow:${TAG}
+FROM nvcr.io/nvidia/l4t-base:${TAG}
 
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y python3-pip git wget
+    apt-get install --no-install-recommends -y python3-pip git curl wget
 
 RUN pip3 install -U pip && \
-    pip3 install matplotlib pillow pandas
+    pip3 install matplotlib pillow numpy pandas
 
 RUN pip3 install jupyterlab && \
     jupyter lab --generate-config && \
