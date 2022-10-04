@@ -11,9 +11,11 @@ RUN pip3 install jupyterlab && \
     jupyter lab --generate-config && \
     rm ~/.jupyter/jupyter_lab_config.py
 
-COPY jupyter_lab_config.py /root/.jupyter/
+COPY ./JupyterLib/jupyter_lab_config.py /root/.jupyter/
 
-RUN pip3 install ./JupyterLib/dist/JetsonPatches-1.0.0-py3-none-any.whl
+COPY ./JupyterLib/dist/JetsonPatches-1.0.0-py3-none-any.whl /temp/JetsonPatches-1.0.0-py3-none-any.whl
+RUN pip3 install /temp/JetsonPatches-1.0.0-py3-none-any.whl && \
+    rm -rf /temp
 
 WORKDIR /workspace
 CMD /bin/bash -c pip3 install -U pip && /bin/bash

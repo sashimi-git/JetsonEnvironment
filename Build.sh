@@ -26,43 +26,48 @@ while getopts i:u:t:h option
 do
     case $option in
         i)
-            if [ "${OPTARG}" = "tensorflow" ]; then
+            if [ "$OPTARG" = "tensorflow" ]; then
                 FILE=tf
-            elif [ "${OPTARG}" = "pytorch" ]; then
+            elif [ "$OPTARG" = "pytorch" ]; then
                 FILE=pytorch;
-            elif [ "${OPTARG}" = "jetpack" ]; then
+            elif [ "$OPTARG" = "jetpack" ]; then
                 FILE=jetpack
-            elif [ "${OPTARG}" = "base" ]; then
+            elif [ "$OPTARG" = "base" ]; then
                 FILE=base
             else
+                echo "E:Parameter value not set."
                 wrongParam
             fi
-            IMAGE_NAME=${OPTARG}
-            ENTERED_I="t";;
+            IMAGE_NAME=$OPTARG
+            ENABLED_I=true;;
         u)
-            if [ "${OPTARG}" = "" ]; then
+            if [ "$OPTARG" = "" ]; then
+                echo "E:Parameter value not set."
                 wrongParam
             fi
-            USER_NAME=${OPTARG}
-            ENTERED_U="t";;
+            USER_NAME=$OPTARG
+            ENABLED_U=true;;
         t)
-            if [ "${OPTARG}" = "" ]; then
+            if [ "$OPTARG" = "" ]; then
+                echo "E:Parameter value not set."
                 wrongParam
             fi
-            TAG=${OPTARG}
-            ENTERED_T="t";;
+            TAG=$OPTARG
+            ENABLED_T=true;;
         h)
             showHelp
             exit 0;;
         \?)
-            echo "Wrong parameter."
+            echo "E:required parameters has not been set."
             showHelp
-            exit 0;;
+            exit 1;;
     esac
 done
 
-[ "${ENTERED_I}" != "t" ] && wrongParam
-[ "${ENTERED_U}" != "t" ] && wrongParam
-[ "${ENTERED_T}" != "t" ] && wrongParam
-
-docker build -t ${USER_NAME}/${IMAGE_NAME}:${TAG} -f ./Dockerfiles/Dockerfile.${FILE} --build-arg TAG=${TAG} .
+if "$ENABLED_I" && "${ENABLED_U}" && "${ENABLED_T}"; then
+    docker build -t $USER_NAME/$IMAGE_NAME:$TAG -f ./Dockerfiles/Dockerfile.$FILE --build-arg TAG=$TAG .
+else
+    echo "E:required parameters has not been set."
+    showHelp
+    exit 1
+fi
