@@ -19,7 +19,7 @@ $ bash ./Build.sh -i <IMAGENAME> -u <USERNAME> -t <TAG>
 ```
 For example:
 ```
-$ cd JetsonXavierNX-ML-Environment
+$ cd JetsonEnvironment
 $ bash ./Build.sh -i tensorflow -u sashimi -t r35.1.0-tf2.9-py3
 ```
 If you don't know how to use:
@@ -37,7 +37,7 @@ $ bash ./Run.sh -i <IMAGENAME> -u <USERNAME> -t <TAG>
 ```
 For example:
 ```
-$ cd JetsonXavierNX-ML-Environment
+$ cd JetsonEnvironment
 $ bash ./Run.sh -i tensorflow -u sashimi -t r35.1.0-tf2.9-py3 -c
 ```
 If you don't know how to use:
@@ -54,4 +54,4 @@ Start Jupyter lab in the command below.
 ```
 $ jupyter lab
 ```
-Then go to http://localhost:8888 or http://JetsonIPAddress:8888.
+Then go to http://localhost:8888 or http://JetsonIP:8888.
