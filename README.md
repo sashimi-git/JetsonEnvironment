@@ -1,5 +1,5 @@
 # JetsonXavierNX ML Environment
-Running these Dockerfiles will install the following packages(Except l4t-base container):
+Running these Dockerfiles will install the following packages(Except l4t-base and l4t-jetpack container):
 - Machine learning library (one of the following)
     - Tensorflow v1.15.5
     - Tensorflow v2.9.1
