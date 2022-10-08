@@ -5,13 +5,10 @@ BuildImages=("jetpack|r35.1.0|tomoya"
              "tensorflow|r35.1.0-tf1.15-py3|tomoya"
              "pytorch|r35.1.0-pth1.13-py3|tomoya")
 
+TIFS=${IFS}
 for s in "${BuildImages[@]}"
 do
-    echo ${s}
-    IFS=, ARR=(${s})
-    echo ${ARR[@]}
-    echo ${ARR[0]}
-    echo ${ARR[1]}
-    echo ${ARR[2]}
-    #bash Run.sh -i ${ARR[0]} -t ${ARR[1]} -u ${ARR[2]}
+    IFS=| ARR=(${s})
+    bash Run.sh -i ${ARR[0]} -t ${ARR[1]} -u ${ARR[2]}
 done
+IFS=${TIFS}
