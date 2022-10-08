@@ -7,6 +7,7 @@ BuildImages=("jetpack|r35.1.0|tomoya"
 
 for s in "${BuildImages[@]}"
 do
-    IFS=, ARR=(${BuildImages})
+    IFS=, ARR=(${s})
+    echo ${ARR[@]}
     bash Run.sh -i ${ARR[0]} -t ${ARR[1]} -u ${ARR[2]}
 done
