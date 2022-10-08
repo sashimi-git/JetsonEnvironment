@@ -6,7 +6,7 @@ Running these Dockerfiles will install the following packages(Except l4t-base an
     - Pytorch v1.13.0
         - torchvision v0.13.0
         - torchaudio v0.12.0
-- opencv v4.5.x
+- opencv v4.x.x
 - numpy
 - matplotlib
 - pandas
@@ -25,6 +25,10 @@ $ bash ./Build.sh -i tensorflow -u sashimi -t r35.1.0-tf2.9-py3
 If you don't know how to use:
 ```
 $ bash ./Build.sh -h
+```
+If you want to build they all:
+```
+$ bash ./BuildAll.sh
 ```
 ## Run
 If you use the camera:

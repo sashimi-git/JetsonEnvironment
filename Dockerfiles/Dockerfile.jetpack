@@ -18,4 +18,4 @@ RUN pip3 install /temp/JetsonPatches-1.0.0-py3-none-any.whl && \
     rm -rf /temp
 
 WORKDIR /workspace
-CMD /bin/bash -c pip3 install -U pip && /bin/bash
+CMD /bin/bash
