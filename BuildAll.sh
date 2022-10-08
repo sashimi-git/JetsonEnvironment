@@ -1,3 +1,4 @@
+#!/bin/bash
 BuildImages=("jetpack|r35.1.0|tomoya"
              "base|r35.1.0|tomoya"
              "tensorflow|r35.1.0-tf2.9-py3|tomoya"
@@ -8,3 +9,4 @@ for s in "${BuildImages[@]}"
 do
     IFS=, ARR=(${BuildImages})
     bash Run.sh -i ${ARR[0]} -t ${ARR[1]} -u ${ARR[2]}
+done
