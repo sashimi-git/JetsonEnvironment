@@ -1,17 +1,19 @@
 #!/bin/bash
-BuildImages=("jetpack|r35.1.0|tomoya"
-             "base|r35.1.0|tomoya"
-             "tensorflow|r35.1.0-tf2.9-py3|tomoya"
-             "tensorflow|r35.1.0-tf1.15-py3|tomoya"
-             "pytorch|r35.1.0-pth1.13-py3|tomoya")
+IMAGES=("base"
+        "jetpack"
+        "tensorflow"
+        "tensorflow"
+        "pytorch")
 
-TIFS=${IFS}
-for s in "${BuildImages[@]}"
+TAGS=("r35.1.0"
+      "r35.1.0"
+      "r35.1.0-tf2.9-py3"
+      "r35.1.0-tf1.15-py3"
+      "r35.1.0-pth1.13-py3")
+
+USER="tomoya"
+
+for ((i=0;i<${#IMAGES[@]};i++))
 do
-    IFS=|
-    ARR=(${s})
-    echo ${ARR}
-    echo ${ARR[0]}
-    bash Run.sh -i ${ARR[0]} -t ${ARR[1]} -u ${ARR[2]}
+    bash Build.sh -i ${IMAGES[i]} -t ${TAGS[i]} -u ${USER}
 done
-IFS=${TIFS}
