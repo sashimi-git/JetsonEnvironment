@@ -23,6 +23,8 @@ function wrongParam() {
     exit 1
 }
 
+USE_CAMERA=false
+
 while getopts i:u:t:n:rc:h option
 do
     case $option in
@@ -64,7 +66,7 @@ do
     esac
 done
 
-if "$ENABLED_I" && "${ENABLED_U}" && "${ENABLED_T}"; then
+if "$ENABLED_I" && "$ENABLED_U" && "$ENABLED_T"; then
     if "$USE_CAMERA"; then
         docker run -it --rm -p 8888:8888 --runtime nvidia --device ${DEVICE}:${DEVICE} -v ~/Documents/workspace:/workspace -e OPENBLAS_CORETYPE=ARMV8 ${USER_NAME}/${IMAGE_NAME}:${TAG}
     else
