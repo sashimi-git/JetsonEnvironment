@@ -28,7 +28,9 @@ do
             if [ "${OPTARG}" = "tensorflow" ]; then
                 FILE=tf
             elif [ "${OPTARG}" = "pytorch" ]; then
-                FILE=pytorch;
+                FILE=pytorch
+            elif [ "${OPTARG}" = "ml"]; then
+                FILE=ml
             else
                 echo "E:Parameter value not set."
                 wrongParam
