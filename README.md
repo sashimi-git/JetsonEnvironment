@@ -1,17 +1,49 @@
 # JetsonXavierNX ML Environment
-Running these Dockerfiles will install the following packages(Except l4t-base and l4t-jetpack container):
-- Machine learning library (one of the following)
-    - Tensorflow v1.15.5
-    - Tensorflow v2.9.1
-    - Pytorch v1.13.0
-        - torchvision v0.13.0
-        - torchaudio v0.12.0
-- opencv v4.x.x
-- numpy
-- matplotlib
-- pandas
-- jupyter lab
-- pillow
+Package versions
+- L4T-tensorflow 2.9
+    - Tensorflow 2.9.1
+    - OpenCV 4.x.x (with CUDA)
+    - pillow latest
+    - numpy latest
+    - matplotlib latest
+    - pandas latest
+    - scipy latest
+    - JupyterLab latest
+- L4T-tensorflow 1.15
+    - Tensorflow 1.15.5
+    - OpenCV 4.x.x (with CUDA)
+    - pillow latest
+    - numpy latest
+    - matplotlib latest
+    - pandas latest
+    - scipy latest
+    - JupyterLab latest
+- L4T-pytorch 1.13
+    - PyTorch 1.13.0
+    - torchvision 0.13.0
+    - torchaudio 0.12.0
+    - OpenCV 4.x.x (with CUDA)
+    - pillow latest
+    - numpy latest
+    - matplotlib latest
+    - pandas latest
+    - scipy latest
+    - JupyterLab latest
+- L4T-ML
+    - Tensorflow 1.15.5
+    - PyTorch 1.12.0
+    - torchvision 0.13.0
+    - torchaudio 0.12.0
+    - onnx 1.12.0
+    - CuPy 10.2.0
+    - numpy 1.22.4
+    - numba 0.56.0
+    - PyCUDA 2022.1
+    - OpenCV 4.5.0 (with CUDA)
+    - pandas 1.4.3
+    - scipy 1.9.0
+    - scikit-learn 1.1.1
+    - JupyterLab 3.4.4
 
 ## Build
 ```

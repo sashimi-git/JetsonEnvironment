@@ -1,14 +1,13 @@
 ARG TAG
-FROM nvcr.io/nvidia/l4t-base:${TAG}
+FROM nvcr.io/nvidia/l4t-ml:${TAG}
 
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y python3-pip git curl wget
+    apt-get install --no-install-recommends -y git
 
 RUN pip3 install -U pip && \
-    pip3 install matplotlib pillow numpy pandas
+    pip3 install matplotlib pillow
 
-RUN pip3 install jupyterlab && \
-    jupyter lab --generate-config && \
+RUN jupyter lab --generate-config && \
     rm ~/.jupyter/jupyter_lab_config.py
 
 COPY ./JupyterLib/jupyter_lab_config.py /root/.jupyter/

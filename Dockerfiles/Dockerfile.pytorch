@@ -5,7 +5,7 @@ RUN apt-get update && \
     apt-get install --no-install-recommends -y git
 
 RUN pip3 install -U pip && \
-    pip3 install matplotlib pillow pandas
+    pip3 install matplotlib pillow pandas scipy
 
 RUN pip3 install jupyterlab && \
     jupyter lab --generate-config && \

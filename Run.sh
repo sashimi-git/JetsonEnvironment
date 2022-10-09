@@ -10,11 +10,10 @@ function showHelp() {
     echo "* is a required option."
     echo ""
     echo "<Images>"
-    echo "base - [r35.1.0]"
     echo "tensorflow - [r35.1.0-tf2.9-py3]"
     echo "             [r35.1.0-tf1.15-py3]"
     echo "pytorch - [r35.1.0-pth1.13-py3]"
-    echo "jetpack - [r35.1.0]"
+    echo "ml - [r35.1.0-py3]"
 }
 
 function wrongParam() {
