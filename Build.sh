@@ -29,7 +29,7 @@ do
                 FILE=tf
             elif [ "${OPTARG}" = "pytorch" ]; then
                 FILE=pytorch
-            elif [ "${OPTARG}" = "ml"]; then
+            elif [ "${OPTARG}" = "ml" ]; then
                 FILE=ml
             else
                 echo "E:Parameter value not set."
