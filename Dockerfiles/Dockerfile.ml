@@ -7,8 +7,8 @@ RUN apt-get update && \
 RUN pip3 install -U pip && \
     pip3 install matplotlib pillow
 
-RUN jupyter lab --generate-config && \
-    rm ~/.jupyter/jupyter_lab_config.py
+RUN rm ~/.jupyter/jupyter_lab_config.py && \
+    jupyter lab --generate-config
 
 COPY ./JupyterLib/jupyter_lab_config.py /root/.jupyter/
 

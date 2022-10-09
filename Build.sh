@@ -36,21 +36,21 @@ do
                 wrongParam
             fi
             IMAGE_NAME=${OPTARG}
-            ENABLED_I=true;;
+            ENABLED_I="true";;
         u)
             if [ "${OPTARG}" = "" ]; then
                 echo "E:Parameter value not set."
                 wrongParam
             fi
             USER_NAME=${OPTARG}
-            ENABLED_U=true;;
+            ENABLED_U="true";;
         t)
             if [ "${OPTARG}" = "" ]; then
                 echo "E:Parameter value not set."
                 wrongParam
             fi
             TAG=${OPTARG}
-            ENABLED_T=true;;
+            ENABLED_T="true";;
         h)
             showHelp
             exit 0;;
@@ -61,7 +61,7 @@ do
     esac
 done
 
-if "${ENABLED_I}" && "${ENABLED_U}" && "${ENABLED_T}"; then
+if [ "${ENABLED_I}" = "true" ] && [ "${ENABLED_U}" = "true" ] && [ "${ENABLED_T}" = "true" ]; then
     docker build -t ${USER_NAME}/${IMAGE_NAME}:${TAG} -f ./Dockerfiles/Dockerfile.${FILE} --build-arg TAG=${TAG} .
 else
     echo "E:required parameters has not been set."

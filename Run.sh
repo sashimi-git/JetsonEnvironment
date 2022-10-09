@@ -22,8 +22,6 @@ function wrongParam() {
     exit 1
 }
 
-USE_CAMERA=false
-
 while getopts i:u:t:n:rc:h option
 do
 case ${option} in
@@ -33,27 +31,27 @@ case ${option} in
                 wrongParam
             fi
             IMAGE_NAME=${OPTARG}
-            ENABLED_I=true;;
+            ENABLED_I="true";;
         u)
             if [ "${OPTARG}" = "" ]; then
                 echo "E:Parameter value not set."
                 wrongParam
             fi
             USER_NAME=${OPTARG}
-            ENABLED_U=true;;
+            ENABLED_U="true";;
         t)
             if [ "${OPTARG}" = "" ]; then
                 echo "E:Parameter value not set."
                 wrongParam
             fi
             TAG=${OPTARG}
-            ENABLED_T=true;;
+            ENABLED_T="true";;
         c)
             if [ "${OPTARG}" = "" ]; then
                 echo "E:Parameter value not set."
                 wrongParam
             fi
-            USE_CAMERA=true
+            USE_CAMERA="true"
             DEVICE=${OPTARG};;
         h)
             showHelp
@@ -65,8 +63,8 @@ case ${option} in
     esac
 done
 
-if "${ENABLED_I}" && "${ENABLED_U}" && "${ENABLED_T}"; then
-    if "${USE_CAMERA}"; then
+if [ "${ENABLED_I}" = "true" ] && [ "${ENABLED_U}" = "true" ] && [ "${ENABLED_T}" = "true" ]; then
+    if [ "${USE_CAMERA}" = "true" ]; then
         docker run -it --rm -p 8888:8888 --runtime nvidia --device ${DEVICE}:${DEVICE} -v ~/Documents/workspace:/workspace -e OPENBLAS_CORETYPE=ARMV8 ${USER_NAME}/${IMAGE_NAME}:${TAG}
     else
         docker run -it --rm -p 8888:8888 --runtime nvidia -v ~/Documents/workspace:/workspace -e OPENBLAS_CORETYPE=ARMV8 ${USER_NAME}/${IMAGE_NAME}:${TAG}
