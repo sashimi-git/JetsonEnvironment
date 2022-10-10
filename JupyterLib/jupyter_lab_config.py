@@ -944,6 +944,7 @@ c.ServerApp.kernel_manager_class = 'jupyter_server.services.kernels.kernelmanage
 #                          (ServerApp.browser) configuration option.
 #  Default: False
 # c.ServerApp.open_browser = False
+c.ServerApp.open_browser = False
 
 ## Hashed password to use for web authentication.
 #  
