@@ -5,7 +5,7 @@ RUN apt-get update && \
     apt-get install --no-install-recommends -y git ffmpeg
 
 RUN pip3 install -U pip && \
-    pip3 install matplotlib pillow
+    pip3 install matplotlib pillow ipywidgets
 
 RUN rm ~/.jupyter/jupyter_lab_config.py && \
     jupyter lab --generate-config
