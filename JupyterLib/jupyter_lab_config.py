@@ -856,6 +856,7 @@ c.ServerApp.ip = '0.0.0.0'
 ## The kernel manager class to use.
 #  Default: 'jupyter_server.services.kernels.kernelmanager.MappingKernelManager'
 # c.ServerApp.kernel_manager_class = 'jupyter_server.services.kernels.kernelmanager.MappingKernelManager'
+c.ServerApp.kernel_manager_class = 'jupyter_server.services.kernels.kernelmanager.AsyncMappingKernelManager'
 
 ## The kernel spec manager class to use. Should be a subclass of
 #  `jupyter_client.kernelspec.KernelSpecManager`.
@@ -943,7 +944,6 @@ c.ServerApp.ip = '0.0.0.0'
 #                          (ServerApp.browser) configuration option.
 #  Default: False
 # c.ServerApp.open_browser = False
-c.ServerApp.open_browser = True
 
 ## Hashed password to use for web authentication.
 #  

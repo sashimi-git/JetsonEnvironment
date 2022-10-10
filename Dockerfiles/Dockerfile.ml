@@ -2,7 +2,7 @@ ARG TAG
 FROM nvcr.io/nvidia/l4t-ml:${TAG}
 
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y git
+    apt-get install --no-install-recommends -y git ffmpeg
 
 RUN pip3 install -U pip && \
     pip3 install matplotlib pillow
