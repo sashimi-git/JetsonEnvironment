@@ -1,49 +1,49 @@
 # JetsonXavierNX ML Environment
-Package versions
-- L4T-tensorflow 2.9
-    - Tensorflow 2.9.1
-    - OpenCV 4.x.x (with CUDA)
-    - pillow latest
-    - numpy latest
-    - matplotlib latest
-    - pandas latest
-    - scipy latest
-    - JupyterLab latest
-- L4T-tensorflow 1.15
-    - Tensorflow 1.15.5
-    - OpenCV 4.x.x (with CUDA)
-    - pillow latest
-    - numpy latest
-    - matplotlib latest
-    - pandas latest
-    - scipy latest
-    - JupyterLab latest
-- L4T-pytorch 1.13
-    - PyTorch 1.13.0
-    - torchvision 0.13.0
-    - torchaudio 0.12.0
-    - OpenCV 4.x.x (with CUDA)
-    - pillow latest
-    - numpy latest
-    - matplotlib latest
-    - pandas latest
-    - scipy latest
-    - JupyterLab latest
+## Package versions
+- L4T-TensorFlow (2.9)
+    - TensorFlow
+    - OpenCV with CUDA
+    - pillow
+    - numpy
+    - matplotlib
+    - pandas
+    - scipy
+    - JupyterLab
+- L4T-TensorFlow (1.15.5)
+    - TensorFlow
+    - OpenCV with CUDA
+    - pillow
+    - numpy
+    - matplotlib
+    - pandas
+    - scipy
+    - JupyterLab
+- L4T-PyTorch
+    - PyTorch
+    - torchvision
+    - torchaudio
+    - OpenCV with CUDA
+    - pillow
+    - numpy
+    - matplotlib
+    - pandas
+    - scipy
+    - JupyterLab
 - L4T-ML
-    - Tensorflow 1.15.5
-    - PyTorch 1.12.0
-    - torchvision 0.13.0
-    - torchaudio 0.12.0
-    - onnx 1.12.0
-    - CuPy 10.2.0
-    - numpy 1.22.4
-    - numba 0.56.0
-    - PyCUDA 2022.1
-    - OpenCV 4.5.0 (with CUDA)
-    - pandas 1.4.3
-    - scipy 1.9.0
-    - scikit-learn 1.1.1
-    - JupyterLab 3.4.4
+    - Tensorflow (1.15.5)
+    - PyTorch
+    - torchvision
+    - torchaudio
+    - onnx
+    - CuPy
+    - numpy
+    - numba
+    - PyCUDA
+    - OpenCV with CUDA
+    - pandas
+    - scipy
+    - scikit-learn
+    - JupyterLab
 
 ## Build
 ```
@@ -62,6 +62,8 @@ If you want to build they all:
 ```
 $ bash ./BuildAll.sh
 ```
+Note: Please specify version and user name in advance.
+
 ## Run
 If you use the camera:
 ```
@@ -90,4 +92,4 @@ Start Jupyter lab in the command below.
 ```
 $ jupyter lab
 ```
-Then go to http://localhost:8888 or http://JetsonIP:8888.
+Then go to http://localhost:8888 or http://{Jetson IP Address}:8888.
